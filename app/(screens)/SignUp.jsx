@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity, Modal, FlatList, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Picker } from '@react-native-picker/picker';
+import  {useRouter} from 'expo-router';
 
 const countryCodes = [
   { label: "+1", value: "+1" },
@@ -15,7 +16,7 @@ export default function SignUp() {
   const [countryCode, setCountryCode] = useState("+1");
   const [mobileNumber, setMobileNumber] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
-
+  const router = useRouter();
 
   return (
     <SafeAreaView className="flex-1 bg-[#F5F5F5] justify-between items-center">
@@ -80,7 +81,7 @@ export default function SignUp() {
           </View>
 
           <TouchableOpacity className="bg-[#957D65] rounded-xl py-4 mt-20">
-            <Text className="text-[#222635] text-lg text-center">Continue</Text>
+            <Text className="text-[#222635] text-lg text-center" onPress={() => router.push('/OnboardScreen')}>Continue</Text>
           </TouchableOpacity>
         </View>
       </View>
