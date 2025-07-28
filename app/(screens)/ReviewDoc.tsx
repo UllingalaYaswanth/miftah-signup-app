@@ -15,7 +15,7 @@ const ReviewDoc = () => {
                 <Text className='text-3xl font-semibold text-left'>Review Documents</Text>
                 <Text className='text-left text-lg'>Verify before submitting required documents</Text>
             </View>
-            <View className='flex-1'>
+            <View className='flex-1 px-5'>
                 <ReviewCard label="Passport" link="https://example.com/passport" />
                 <ReviewCard label="Emirates ID" link="https://example.com/emirates-id" />
             </View>

@@ -10,10 +10,10 @@ const OnboardScreen = () => {
   return (
     <View className="flex-1 bg-[#E3DCD4] px-6 pt-12 pb-6">
       {/* Logo */}
-      <View className="items-center mb-6">
+      <View className="items-center mt-10">
         <Image
           source={require('../../assets/images/miftah_logo.png')}
-          className="w-40 h-40"
+          className="w-[40%] h-40"
           resizeMode="contain"
         />
       </View>

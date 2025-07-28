@@ -15,13 +15,13 @@ const VerifyStatus = () => {
           <Text className='text-3xl font-semibold text-left'>Verification Status</Text>
           <Text className='text-left text-lg'>Check the status of your document verification</Text>
         </View>
-      <View className='flex-1 mt-6'>
-        <VerifyCard label="Proof Of Identity" ID="Emirates ID" status="Approved" />
-        <VerifyCard label="Face Picture" ID="Face Picture" status="Pending" />
+        <View className='flex-1 mt-6'>
+          <VerifyCard label="Proof Of Identity" ID="Emirates ID" status="Approved" />
+          <VerifyCard label="Face Picture" ID="Face Picture" status="Pending" />
         </View>
       </View>
       <TouchableOpacity className='mt-4 bg-[#957D65] px-6 py-3 rounded-lg px-10 mb-5' onPress={() => { router.push('/HomeScreen') }}>
-        <Text className='text-[#222635] text-center'>View Details</Text>
+        <Text className='text-[#222635] text-center'>Done</Text>
       </TouchableOpacity>
     </SafeAreaView>
   )

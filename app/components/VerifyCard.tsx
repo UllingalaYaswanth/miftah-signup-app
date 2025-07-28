@@ -3,7 +3,7 @@ import React from 'react'
 
 const VerifyCard = ({ label, ID, status }) => {
   return (
-    <View className='bg-[#E3DCD4] px-6 pb-6 items-center justify-center'>
+    <View className='bg-[#E3DCD4] pb-3 items-center justify-center'>
       <View className='bg-white p-6 rounded-lg shadow-lg flex-row items-center justify-between w-full'>
         <View>
           <Text className='text-xl font-bold text-[#222635]'>{label}</Text>
