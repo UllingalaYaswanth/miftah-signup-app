@@ -20,7 +20,7 @@ const OnboardScreen = () => {
 
       {/* Main content */}
       <View className="flex-1 items-center justify-center">
-        <Text className="text-2xl text-[#222635]  mb-20">
+        <Text className="text-2xl text-[#222635] mb-20">
           Onboarding Choice
         </Text>
 

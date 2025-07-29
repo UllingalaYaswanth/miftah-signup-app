@@ -7,7 +7,7 @@ import  {useRouter} from 'expo-router';
 
 const countryCodes = [
   { label: "+1", value: "+1" },
-  { label: "+44", value: "+44" },
+  { label: "+144", value: "+144" },
   { label: "+91", value: "+91" },
   // Add more codes here as needed
 ];
@@ -19,7 +19,7 @@ export default function SignUp() {
   const router = useRouter();
 
   return (
-    <SafeAreaView className="flex-1 bg-[#F5F5F5] justify-between items-center">
+    <SafeAreaView className="flex-1 bg-[#E3DCD4] justify-between items-center">
       <View>
         <Image
           source={require('../../assets/images/miftah_logo.png')}
@@ -31,14 +31,14 @@ export default function SignUp() {
         <Text className="text-2xl font-bold">Request Membership</Text>
         <View className="flex-1 mt-16 w-[85%]">
           <View className="mb-8">
-            <Text>Full Name</Text>
+            <Text className= "font-semibold">Full Name</Text>
             <TextInput
               placeholder="Full Name"
               className="bg-white rounded-2xl p-4 ml-1 mt-2"
             />
           </View>
           <View className="mb-8">
-            <Text>Email</Text>
+            <Text  className= "font-semibold">Email</Text>
             <TextInput
               placeholder="Email"
               className="bg-white rounded-2xl p-4 ml-1 mt-2"
@@ -47,8 +47,8 @@ export default function SignUp() {
             />
           </View>
           <View className="mb-8">
-            <Text>Mobile Number</Text>
-            <View className="flex-row items-center bg-white rounded-full h-12 mt-2 border border-gray-300">
+            <Text className= "font-semibold">Mobile </Text>
+            <View className="flex-row items-center bg-white rounded-2xl h-14 mt-2 border border-gray-300">
               
               {/* Country Code Picker */}
               <View className="w-36 overflow-hidden">
@@ -80,8 +80,8 @@ export default function SignUp() {
             </View>
           </View>
 
-          <TouchableOpacity className="bg-[#957D65] rounded-xl py-4 mt-20">
-            <Text className="text-[#222635] text-lg text-center" onPress={() => router.push('/OnboardScreen')}>Continue</Text>
+          <TouchableOpacity className="bg-[#957D65] rounded-lg py-4 mt-20">
+            <Text className="text-[#222635] text-lg text-center" onPress={() => router.push('/SignUp_Otp')}>Continue</Text>
           </TouchableOpacity>
         </View>
       </View>

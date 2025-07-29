@@ -5,7 +5,7 @@ import { useRouter } from 'expo-router';
 const Chat = () => {
   const router = useRouter();
   return (
-    <SafeAreaView className="flex-1 bg-[#F5F5F5]">
+    <SafeAreaView className="flex-1 bg-[#E3DCD4]">
       {/* Top Half with Logo and Button */}
       <View className="flex-1 items-center justify-center">
         <Image

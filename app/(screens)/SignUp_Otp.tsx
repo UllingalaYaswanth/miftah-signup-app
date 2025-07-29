@@ -1,8 +1,11 @@
+
+
 import { View, Text, Image, TextInput,TouchableOpacity } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Button from '../components/Button'
 import { useRouter } from 'expo-router'
+import BackButton from '../components/BackButton'
 
 export default function index() {
   const [otp,setOtp] = useState(['','','','','',''])
@@ -20,13 +23,15 @@ export default function index() {
   }
 
   return (
-    <SafeAreaView className='flex-1 bg-[#E3DCD4] items-center justify-center'>
-      <View className='w-full items-center mt-10'>
-        <Image source={require('../../assets/images/miftah_logo.png')} className='w-40 h-20' resizeMode='contain'/>
-        <Image source={require('../../assets/images/mifta_text-Photoroom.png')} className='w-[100%] h-40 ' resizeMode='contain' />
+    <SafeAreaView className='flex-1 bg-[#E3DCD4] px-3'>
+      <BackButton to="/SignUp"/>
+      <View className='flex-1 items-center justify-center'>
+      <View className='w-full items-center mt-16'>
+        <Image source={require('../../assets/images/miftah_logo.png')} className='w-[40%] h-20' resizeMode='contain'/>
       </View>
-      <View className='flex-1 items-center w-full mt-10'>
-        <Text className='text-center w-[80%]'>We have sent a 6-digit verification code to +971  x xxx x666</Text>
+      <View className='flex-1 justify-center items-center w-full mt-10'>
+        <Text className='text-center text-xl w-[80%] mb-20'>We have sent a 6-digit verification code to +971  x xxx x666</Text>
+         <Text className='text-center text-3xl w-[80%] mb-10'>Enter 6 digit code </Text>
         <View className='w-full flex-row' style={{justifyContent:"space-evenly"}}>
         {
           otp.map((digit,index) => (
@@ -54,7 +59,7 @@ export default function index() {
         <TouchableOpacity className='w-full px-10' >
           <Text className='text-right mt-5 text-[#222635]'>Resend OTP</Text>
         </TouchableOpacity>
-        <Button label='Login' onPress={() => router.push('/(screens)/BioMetric')} className='px-10 mt-5 w-[60%]'/>
+        <Button label='Login' onPress={() => router.push('/(screens)/OnboardScreen')} className='px-10 mt-5 w-[60%]'/>
       </View>
       <View>
         <Text className='text-center text-sm text-[#222635] px-5 mb-5'>
@@ -63,7 +68,7 @@ export default function index() {
           <Text className='underline'>Privacy policy</Text>
         </Text>
       </View>
-
+</View>
     </SafeAreaView>
   )
 }

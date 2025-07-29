@@ -1,68 +1,65 @@
-// import { View, Text, TouchableOpacity } from 'react-native'
-// import React from 'react'
-// import Feather from '@expo/vector-icons/Feather';
-// import AntDesign from '@expo/vector-icons/AntDesign';
-// const ReviewCard = ({label, link}) => {
-//   return (
-//     <View className='px-6 items-left justify-center'>
-//       <View className='items-left bg-gray-100/50 justify-center p-4 rounded-lg '>
-//         <Text className='text-xl'>{label}</Text>
-//         <View className='flex-row item-center justify-between mt-2 bg-white p-4 rounded-xl'>
-//           <View className='flex-row items-center mt-2'>
-//             <Feather name="link-2" size={24} color="black" />
-//             <Text className='text-base text-blue-500 underline text-lg ml-2'>{link}</Text>
-//           </View>
-//           <View className='flex-row items-center space-x-4'>
-//             <TouchableOpacity>
-//               <Feather name="edit" size={24} color="black" />
-//             </TouchableOpacity>
-//             <TouchableOpacity >
-//                 <View className="ml-3">
-//                     <AntDesign name="delete" size={24} color="red" />
-//                 </View>
-//             </TouchableOpacity>
-//           </View>
-//         </View>
-//       </View>
-//     </View>
-//   )
-// }
-
-// export default ReviewCard
-
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import React from 'react';
 import Feather from '@expo/vector-icons/Feather';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import * as Linking from 'expo-linking';
 
-const ReviewCard = ({ label, link }) => {
+const ReviewCard = ({ label = "Document", link = "#" }) => {
+  const handleDelete = () => {
+    Alert.alert("Confirm Delete", `Are you sure you want to delete ${label}?`, [
+      { text: "Cancel", style: "cancel" },
+      {
+        text: "Delete",
+        style: "destructive",
+        onPress: () => {
+          console.log(`Deleted ${label}`);
+        },
+      },
+    ]);
+  };
+
   return (
-    <View className='px-6 items-left justify-center'>
-      <View className='items-left bg-gray-100/50 justify-center p-4 rounded-lg'>
-        <Text className='text-xl'>{label}</Text>
+    <View className="bg-gray-100/50 justify-center p-4 rounded-lg mb-3">
+      <Text className="text-xl text-[#222635]">{label}</Text>
 
-        <View className='flex-row justify-between mt-2 bg-white p-4 rounded-xl items-start'>
-          {/* Link section */}
-          <View className='flex-1 flex-row items-start pr-4'>
-            <Feather name="link-2" size={24} color="black" />
-            <Text
-              className='text-base text-blue-500 underline ml-2 flex-1'
-              numberOfLines={2}
-              ellipsizeMode="tail"
-            >
-              {link}
-            </Text>
-          </View>
+      <View className="flex-row justify-between mt-2 bg-white p-4 rounded-xl items-start">
+        <TouchableOpacity
+          className="flex-1 flex-row items-start pr-4"
+          onPress={() => Linking.openURL(link)}
+          accessibilityRole="link"
+          accessibilityLabel={`Open ${label} document link`}
+        >
+          <Feather name="link-2" size={24} color="black" />
+          <Text
+            className="text-base text-blue-500 underline ml-2 flex-1"
+            numberOfLines={2}
+            ellipsizeMode="tail"
+          >
+            {link}
+          </Text>
+        </TouchableOpacity>
 
-          {/* Action buttons */}
-          <View className='flex-row items-center space-x-4'>
-            <TouchableOpacity>
-              <Feather name="edit" size={24} color="black" />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <AntDesign name="delete" size={24} color="red" />
-            </TouchableOpacity>
-          </View>
+        <View className="flex-row items-center space-x-4">
+          <TouchableOpacity
+            onPress={() => console.log(`Edit ${label}`)}
+            accessibilityRole="button"
+            accessibilityLabel={`Edit ${label}`}
+            style={
+              {
+                marginRight:10
+              }
+            }
+          >
+            <Feather name="edit" size={24} color="black" />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={handleDelete}
+            accessibilityRole="button"
+            accessibilityLabel={`Delete ${label}`}
+          >
+            <AntDesign name="delete" size={24} color="red" />
+          </TouchableOpacity>
         </View>
       </View>
     </View>
