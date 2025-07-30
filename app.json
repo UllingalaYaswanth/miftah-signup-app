@@ -7,6 +7,7 @@
     "icon": "./assets/images/miftah_logo.png",
     "scheme": "miftah",
     "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": ["**/*"],
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
@@ -16,7 +17,8 @@
         "foregroundImage": "./assets/images/miftah_logo.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.yaswanthullingala.miftah"
     },
     "web": {
       "bundler": "metro",
@@ -28,15 +30,21 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "resizeMode": "cover",
-          "backgroundColor": "#ffffff",
+          "image": "./assets/images/miftah_logo.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#f0f0f0",
           "enableFullScreenImage_legacy": true
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "2e072d98-ae95-4206-8c0b-3c1ac75367cd"
+      }
     }
   }
 }
