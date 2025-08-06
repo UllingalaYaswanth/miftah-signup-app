@@ -3,12 +3,10 @@ frontend:
   phases:
     preBuild:
       commands:
-        - nvm install 20
-        - nvm use 20
-        - npm ci --cache .npm --prefer-offline
+        - npm ci
     build:
       commands:
-        - echo "No build step needed for Expo app"
+        - npm run build
   artifacts:
     baseDirectory: web-build
     files:
@@ -16,4 +14,3 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
-
